@@ -1,6 +1,6 @@
 from app import db
 
-class Friends(db.Model):
+class Friend(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(50), nullable=False)

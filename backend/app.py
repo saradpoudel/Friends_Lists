@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -12,5 +13,8 @@ db = SQLAlchemy(app)
 
 import routes
 
+with app.app_context():
+    db.create_all()
+    
 if __name__ == "__main__":
     app.run(debug=True)
